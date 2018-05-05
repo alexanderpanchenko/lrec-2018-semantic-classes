@@ -1,9 +1,12 @@
+%\documentclass[usenames,dvipsnames,notes]{beamer}
 \documentclass[usenames,dvipsnames]{beamer}
+
 \usetheme{uhh}
 \showtotalframenumber
 \showuhhlogoeachframe
 \showsections
 
+\usepackage{ textcomp }
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{amsmath}
@@ -19,7 +22,7 @@
 
 \title{Improving Hypernymy Extraction with Distributional Semantic Classes}
 
-\author{\underline{Alexander Panchenko}, Dmitry Ustalov, Stefano Faralli, Simone Paolo Ponzetto, and Chris Biemann}
+\author[Panchenko et al. LREC'18]{\underline{Alexander Panchenko}, Dmitry Ustalov, Stefano Faralli, Simone Paolo Ponzetto, and Chris Biemann}
 % \institute{$^1$ University of Hamburg, Department of Informatics, Language Technology Group, Germany \\
 %         $^2$ University of Mannheim, School of Business Informatics and Mathematics, Data and Web Science Group} 
 \date[10.05.2018]{May 10, 2018}
@@ -57,11 +60,139 @@
 %\include{overview}
 \section{Introduction}
 \subsection{}
-\begin{frame}{...}
 
-akljdf
+
+\begin{frame}{Hypernyms}
+
+\begin{block}{Examples of hypernymy relations}
+\begin{itemize}
+	\item \textbf{apple} --isa\textrightarrow \textbf{ fruit}
+	\item \textbf{mangosteen} --isa\textrightarrow \textbf{ fruit}
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{block}{Examples of applications of hypernyms}
+\begin{itemize}
+	\item question answering~\cite{Zhou:13} 
+	\item query expansion~\cite{gong2005web}
+	\item semantic role labelling~\cite{shi2005putting} 
+\end{itemize}
+\end{block}
 \end{frame}
 
+%Hypernyms are useful in various applications, such as .
+% Hypernyms are also the building blocks for learning taxonomies from text~\cite{bordea2016semeval}. Consider the following sentence: ``This caf\'e serves fresh \textit{mangosteen} juice''. Here the infrequent word ``mangosteen'' may be poorly represented or even absent in the vocabulary of a statistical model, yet it can be substituted by lexical items with better representations, which carry close meaning, such as its hypernym ``fruit'' or one of its close co-hyponyms, e.g. ``mango''. 
+
+\begin{frame}{Automatic extraction of hypernyms}
+
+% Currently available approaches to hypernymy extraction focus on the acquisition of individual binary hypernymy relations~\cite{hearst1992automatic,snow2004learning,weeds2014learning,shwartz-goldberg-dagan:2016:P16-1,glavavs-ponzetto:2017:EMNLP2017}. Frequencies of the extracted relations usually follow a power-law, with a long tail of noisy extractions containing rare words. We propose a method that performs post-processing of such noisy binary hypernyms using distributional semantics, cf. Figure~\ref{fig:cosetbinary}. Namely, we use the observation that distributionally related words are often are co-hyponyms~\cite{wandmacher2005semantic,Heylen:08} and operationalize it to perform filtering of noisy relations by finding dense graphs composed of both hypernyms and co-hyponyms.  
+ 
+% The contribution of the paper is an unsupervised method for post-processing of noisy hypernymy relations based on  clustering of graphs of word senses induced from text. The idea to use distributional semantics to find hypernyms seems natural and has been widely used. However, the existing methods used distributional, yet \textit{sense-unaware} and \textit{local} features. We are the first to use \textit{global sense-aware distributional structure} via the induced semantic classes to improve hypernymy extraction. The implementation of our method and the induced language resources (distributional semantic classes and cleansed hypernymy relations) are available online.\footnote{\url{https://github.com/uhh-lt/mangosteen}}
+
+\end{frame}
+
+
+\begin{frame}{Main contributions}
+
+\begin{itemize}
+	\item We show how distributionally-induced \alert{\textbf{semantic classes}} can be helpful  for \alert{\textbf{extracting hypernyms}}:
+	\pause
+	\vspace{10pt}
+	\begin{enumerate}
+		\item A method for \alert{inducing sense-aware semantic classes} using distributional semantics; 
+		\vspace{10pt}
+		\item A method for using the induced semantic classes for \alert{filtering noisy hypernymy relations}.
+	 \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\section{Method}
+\subsection{}
+
+
+\begin{frame}{ post-processing of hypernymy relations using distributionally induced semantic classes }
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.9\textwidth]{figures/coset}
+
+\end{figure}
+
+\begin{itemize}
+\item post-processing of hypernymy relations using distributionally induced semantic classes
+\item a semantic class is a clusters of induced word senses labeled with hypernyms
+
+\end{itemize}
+
+\note{The word postfix, such as \texttt{\#1}, is an ID of an induced sense. The wrong hypernyms outside the cluster labels are removed, while the missing ones not present in the noisy database of hypernyms are added. }
+
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+\section{Results}
+\subsection{}
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
+
+
+\begin{frame}{ ... }
+
+\end{frame}
 
 
 \bibliography{biblio}
