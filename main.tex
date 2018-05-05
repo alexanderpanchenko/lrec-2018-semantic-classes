@@ -1,0 +1,72 @@
+\documentclass[usenames,dvipsnames]{beamer}
+\usetheme{uhh}
+\showtotalframenumber
+\showuhhlogoeachframe
+\showsections
+
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usepackage{listings}
+\lstset{
+  language=python
+  }
+
+
+\title{Improving Hypernymy Extraction with Distributional Semantic Classes}
+
+\author{\underline{Alexander Panchenko}, Dmitry Ustalov, Stefano Faralli, Simone Paolo Ponzetto, and Chris Biemann}
+% \institute{$^1$ University of Hamburg, Department of Informatics, Language Technology Group, Germany \\
+%         $^2$ University of Mannheim, School of Business Informatics and Mathematics, Data and Web Science Group} 
+\date[10.05.2018]{May 10, 2018}
+
+\AtBeginSection[]
+{
+   %%%%% section title
+   % This is how it would look like in Beamer:
+   % \begin{frame}
+   %     \frametitle{Overview}
+   %     \tableofcontents[sections={2-3},currentsection,sectionstyle=show/hide,subsectionstyle=hide]
+   % \end{frame}
+  \begin{frame}[plain]
+  \begin{tikzpicture}[overlay]
+    \relax%
+    \fill[blueuhh,opacity=1] (-10,-10)
+    rectangle(\the\paperwidth,\the\paperheight);
+  \end{tikzpicture}
+   \begin{tikzpicture}[overlay]
+    \relax%
+    \fill[white,opacity=1] (-5,-1.2)
+    rectangle(\the\paperwidth,0.5) node[pos=0.5,black]{\LARGE\insertsectionhead};
+  \end{tikzpicture}
+  \end{frame}
+
+  %%%% add subsection to show navigation dots
+  \subsection{}
+}
+
+
+\begin{document}
+
+\maketitle
+
+%\include{overview}
+\section{Introduction}
+\subsection{}
+\begin{frame}{...}
+
+akljdf
+\end{frame}
+
+
+
+\bibliography{biblio}
+\bibliographystyle{apalike2}
+
+
+\end{document}
+

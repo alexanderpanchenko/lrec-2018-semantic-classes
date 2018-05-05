@@ -1,0 +1,63 @@
+[dustalov@tazik aggregate]$ ./exp2-aggregate.py 3
+Clusters (575 non-golden out of 588):	accuracy=0.840, zero_one_loss=0.160, avg_badness=0.250.
+Hypernyms (605 non-golden out of 615):	accuracy=0.876, zero_one_loss=0.124, avg_badness=0.202.
+
+[dustalov@tazik aggregate]$ ./agreement.groovy clusters-votes.csv 
+PercentageAgreement: 0.869952
+KrippendorffAlphaAgreement: 0.588389
+org.dkpro.statistics.agreement.coding.FleissKappaAgreement does not support dealing with missing values. Consider using, for example, Krippendorff's alpha instead.
+FleissKappaAgreement: 0.588349
+RandolphKappaAgreement: 0.739903
+
+[dustalov@tazik aggregate]$ ./agreement.groovy hypernyms-votes.csv 
+PercentageAgreement: 0.852617
+KrippendorffAlphaAgreement: 0.655060
+org.dkpro.statistics.agreement.coding.FleissKappaAgreement does not support dealing with missing values. Consider using, for example, Krippendorff's alpha instead.
+FleissKappaAgreement: 0.655013
+RandolphKappaAgreement: 0.705234
+
+[dustalov@tazik aggregate]$ ./exp3-aggregate.py 3
+4848 pairs annotated including 2638 by patterns and 2884 by clusters; 14542 votes total.
+Patterns have accuracy=0.500, roc_auc=0.502, precision=0.475, recall=0.546, f1_score=0.508.
+Clusters have accuracy=0.575, roc_auc=0.580, precision=0.541, recall=0.679, f1_score=0.602.
+
+[dustalov@tazik aggregate]$ ./agreement.groovy exp3-study.csv 
+PercentageAgreement: 0.774018
+KrippendorffAlphaAgreement: 0.546978
+org.dkpro.statistics.agreement.coding.FleissKappaAgreement does not support dealing with missing values. Consider using, for example, Krippendorff's alpha instead.
+FleissKappaAgreement: 0.546957
+RandolphKappaAgreement: 0.548037
+
+=======================
+
+[dustalov@tazik aggregate]$ ./exp2-aggregate.py 3
+Clusters (575 non-golden out of 588):	accuracy=0.859, zero_one_loss=0.141, avg_badness=0.248.
+Hypernyms (605 non-golden out of 615):	accuracy=0.919, zero_one_loss=0.081, avg_badness=0.208.
+
+[dustalov@tazik aggregate]$ ./agreement.groovy clusters-votes.csv 
+PercentageAgreement: 0.869952
+KrippendorffAlphaAgreement: 0.588389
+org.dkpro.statistics.agreement.coding.FleissKappaAgreement does not support dealing with missing values. Consider using, for example, Krippendorff's alpha instead.
+FleissKappaAgreement: 0.588349
+RandolphKappaAgreement: 0.739903
+
+[dustalov@tazik aggregate]$ ./agreement.groovy hypernyms-votes.csv
+PercentageAgreement: 0.852617
+KrippendorffAlphaAgreement: 0.655060
+org.dkpro.statistics.agreement.coding.FleissKappaAgreement does not support dealing with missing values. Consider using, for example, Krippendorff's alpha instead.
+FleissKappaAgreement: 0.655013
+RandolphKappaAgreement: 0.705234
+
+Пока не успел доделать эксперимент № 3.
+
+Randolph kappa.
+
+Судя по всему, мы можем использовать стандартные значения для каппы.
+
+http://www.sciencedirect.com/science/article/pii/S0020138314003106
+
+Values of Kappa can range from -1.0 to 1.0, with -1.0 indicating perfect disagreement below chance, 0.0 indicating agreement equal to chance and 1.0 indicating perfect agreement above chance. A Kappa of 0.70 or above indicates adequate inter-observer agreement [14] (Table 2). Приведённая таблица совпадает с той, что опубликована в Википедии. Вообще, она доступна по ссылке [14].
+
+[14] Landis JR, Koch GG. The measurement of observer agreement for categorical data. Biometrics 1977;33(1):159–74.
+
+Вполне попадаем в moderate (0.41–0.60).

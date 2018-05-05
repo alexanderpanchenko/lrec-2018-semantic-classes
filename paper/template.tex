@@ -1,0 +1,72 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{lrec}
+\usepackage{multibib}
+\newcites{languageresource}{Language Resources}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{soul}
+% for eps graphics
+
+\usepackage{epstopdf}
+\usepackage[latin1]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{xstring}
+
+\newcommand{\secref}[1]{\StrSubstitute{\getrefnumber{#1}}{.}{ }}
+
+\title{\textbf{Using Distributional Semantic Classes for \\ Extraction and Disambiguation of Hypernyms}}
+
+\name{Alexander Panchenko$^{1*}$, Dmitry Ustalov$^{2*}$, Stefano Faralli$^3$, Simone Paolo Ponzetto$^3$, Chris Biemann$^1$}
+
+\address{$^*$ these authors contributed equally \\
+         $^1$ University of Hamburg, Department of Informatics, Language Technology Group, Germany \\ $^2$  Ural Federal University, Institute of Natural Sciences and Mathematics, Russia\\ 
+         $^3$ University of Mannheim, Web and Data Science Group, Germany }
+
+
+\abstract{
+In this paper we show for the first time how distribuionally-induced semantic classes can be helpful for (i) extraction of hypernyms, (ii) disambiguation of hypernyms in context. We present a method for post-processing noisy hypernymy relations on the basis of a global clustering of word senses. We induce distributional sense representations and apply a series of graph clustering algorithms to induce clusters representing semantic classes. Denoising of hypernyms is performed by labeling each semantic class with its hypernyms. On one hand, this lets us filter out wrong extractions not confirmed by distributionally similar terms within the respective cluster. On the other hand, we infer missing hypernyms via label propagation to cluster terms. We conduct a large-scale crowdsourcing study showing that processing of automatically extracted hypernyms using our approach improves the quality of the original extraction method both in terms of precision and recall. Furthermore, we show the utility of our method in the domain taxonomy induction task, achieving the state-of-the-art results on a standard dataset.  \\ \newline \Keywords{semantic classes, distributional semantics, hypernyms, co-hyponyms, word sense induction} }
+
+\begin{document}
+
+\maketitleabstract
+
+\section{Introduction}
+
+Hypernyms are useful in various applications, such as question answering~\cite{Zhou:13}, query expansion~\cite{gong2005web},  and semantic role labelling~\cite{shi2005putting} as they can help to overcome sparsity of statistical models. Hypernyms are also the building blocks for learning taxonomies from text~\cite{bordea2016semeval}. Consider the following sentence: ``This cafe serves fresh \textit{mangosteen} juice''. Here the infrequent word ``mangosteen'' may be poorly represented or even absent in the vocabulary of a statistical model, yet it can be substituted by lexical items with better representations, which carry close meaning, such as its hypernym ``fruit'' or one of its close co-hyponyms, e.g. ``mango''. 
+
+Currently available approaches to hypernymy extraction focus on extraction of individual binary hypernymy relations~\cite{hearst1992automatic,snow2004learning,weeds2014learning,shwartz-goldberg-dagan:2016:P16-1}. The result of such extraction usually results in relations whose frequencies following a power-law, with a long tail of noisy extractions containing rare words. We propose a method that performs post-processing of such noisy binary hypernyms using distributional semantics. Namely, we use the observation that distributionally related words are often co-hyponyms~\cite{wandmacher2005semantic,Heylen:08} and operationalize it to perform filtering of noisy relations by finding dense graphs composed of both hypernyms and co-hyponyms.  
+ 
+The contribution of the paper is an unsupervised method for post-processing of noisy binary hypernymy relations based on clustering of distributional sense graphs. We are the first to use (1) sense representations, and (2) global distributional sense clusters to improve hypernymy extraction, as opposed to the prior methods, e.g. \cite{shwartz-goldberg-dagan:2016:P16-1}, used distributional sense-unaware features locally to extract individual binary relations.
+%Second, we use the mentioned above sense graphs to develop a simple yet effective method for domain taxonomy induction yielding state-of-the-art results.
+The implementation of our methods and the induced sense clusters are available online.%\footnote{\url{http://anonymized.uri.com/}}
+
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=.85\textwidth]{outline}
+  \caption{Outline of our method: induction, labeling, and clustering of word senses. The noisy binary hypernyms are extracted from the text corpus with an external method and are filtered. }
+  \label{fig:outline}
+\end{figure*}
+
+
+\section{Paper}
+
+
+\section{Conclusion}
+
+
+
+% \nocite{*}
+\section{Bibliographical References}
+\label{main:ref}
+
+\bibliographystyle{lrec}
+\bibliography{xample}
+
+
+% \section{Language Resource References}
+% \label{lr:ref}
+% \bibliographystylelanguageresource{lrec}
+% \bibliographylanguageresource{xample}
+
+\end{document}
