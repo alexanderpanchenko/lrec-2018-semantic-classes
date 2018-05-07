@@ -108,6 +108,10 @@ $ $
 
 \pause
 
+``\textbf{This caf\'e serves fresh \alert{\underline{mangosteen}} juice}''
+
+\pause 
+
 \begin{block}{Examples of applications of hypernyms}
 \begin{itemize}
 	\item question answering~\cite{Zhou:13} 
@@ -115,40 +119,64 @@ $ $
 	\item semantic role labelling~\cite{shi2005putting} 
 \end{itemize}
 \end{block}
+
+
+\note{Hypernyms are also the building blocks for learning taxonomies from text~\cite{bordea2016semeval}. Consider the following sentence: . Here the infrequent word ``mangosteen'' may be poorly represented or even absent in the vocabulary of a statistical model, yet it can be substituted by lexical items with better representations, which carry close meaning, such as its hypernym ``fruit'' or one of its close co-hyponyms, e.g. ``mango''. }
+
 \end{frame}
 
 
-%Hypernyms are useful in various applications, such as .
-% Hypernyms are also the building blocks for learning taxonomies from text~\cite{bordea2016semeval}. Consider the following sentence: ``This caf\'e serves fresh \textit{mangosteen} juice''. Here the infrequent word ``mangosteen'' may be poorly represented or even absent in the vocabulary of a statistical model, yet it can be substituted by lexical items with better representations, which carry close meaning, such as its hypernym ``fruit'' or one of its close co-hyponyms, e.g. ``mango''. 
-
 \begin{frame}{Automatic extraction of hypernyms}
 
-% Currently available approaches to hypernymy extraction focus on the acquisition of individual binary hypernymy relations~\cite{hearst1992automatic,snow2004learning,weeds2014learning,shwartz-goldberg-dagan:2016:P16-1,glavavs-ponzetto:2017:EMNLP2017}. Frequencies of the extracted relations usually follow a power-law, with a long tail of noisy extractions containing rare words. We propose a method that performs post-processing of such noisy binary hypernyms using distributional semantics, cf. Figure~\ref{fig:cosetbinary}. Namely, we use the observation that distributionally related words are often are co-hyponyms~\cite{wandmacher2005semantic,Heylen:08} and operationalize it to perform filtering of noisy relations by finding dense graphs composed of both hypernyms and co-hyponyms.  
+\vspace{-10pt}
+\begin{block}{A short history of extraction methods}
+\begin{enumerate}
+	\item \cite{hearst1992automatic}: lexical-syntactic patterns \textbf{\alert{defined manually}};
+
+	\pause 
+		
+	\item \cite{snow2004learning}: lexical-syntactic patterns learned in \textbf{\alert{a supervised way}};
+	
+	\pause 
+	
+	\item \cite{weeds2014learning}: supervised approach with \textbf{\alert{word embedding features}};
+	
+	\item \cite{shwartz-goldberg-dagan:2016:P16-1}: supervised approach with \textbf{\alert{word and path embedding features}};
+	
+	\item \cite{glavavs-ponzetto:2017:EMNLP2017,ustalov-EtAl:2017:EACLshort}: taking into account \textbf{\alert{assymetry}} of hypernyms.
+
+\end{enumerate}
+\end{block}
+
+\pause 
+
+\textbf{Not taking into account \alert{word senses} and \alert{global structure}!}
+
+ \note{Frequencies of the extracted relations usually follow a power-law, with a long tail of noisy extractions containing rare words. We propose a method that performs post-processing of such noisy binary hypernyms using distributional semantics, cf. Figure~\ref{fig:cosetbinary}. Namely, we use the observation that distributionally related words are often are co-hyponyms~\cite{wandmacher2005semantic,Heylen:08} and operationalize it to perform filtering of noisy relations by finding dense graphs composed of both hypernyms and co-hyponyms.  }
  
-% The contribution of the paper is an unsupervised method for post-processing of noisy hypernymy relations based on  clustering of graphs of word senses induced from text. The idea to use distributional semantics to find hypernyms seems natural and has been widely used. However, the existing methods used distributional, yet \textit{sense-unaware} and \textit{local} features. We are the first to use \textit{global sense-aware distributional structure} via the induced semantic classes to improve hypernymy extraction. The implementation of our method and the induced language resources (distributional semantic classes and cleansed hypernymy relations) are available online.\footnote{\url{https://github.com/uhh-lt/mangosteen}}
-
-
-%In her pioneering work, \newcite{hearst1992automatic} proposed to extract hypernyms based on lexical-syntactic patterns from text. \newcite{snow2004learning} learned such patterns automatically based on a set of hyponym-hypernym pairs. \newcite{pantel2006espresso} presented another approach for weakly supervised extraction of similar extraction patterns. These approaches use some training pairs of hypernyms to bootstrap the pattern discovery process. For instance, \newcite{sang2007extracting} used web snippets as a corpus for extraction of hypernyms. More recent approaches exploring the use of distributional word representations for extraction of hypernyms and co-hyponyms include~\cite{roller2014inclusive,weeds2014learning,necsulescu2015reading,vylomova-EtAl:2016:P16-1}. They rely on two distributional vectors to characterize a relation between two words, e.g. on the basis of the difference of such vectors or their concatenation. \newcite{Levy:15} discovered a tendency to lexical memorization of such approaches, hampering their generalization to other domains.
-%
-%\newcite{fu2014learning} relied on an alternative approach where a projection matrix is learned, which transforms a distributional vector of a hyponym to the vector of its hypernym. \newcite{ustalov-EtAl:2017:EACLshort} improved this method by adding regularizers in the model that take into account negative training samples and the asymmetric nature of the hypernyms. 
-%
-%Recent approaches to hypernym extraction focused on learning \textit{supervised} models based on a combination of syntactic patterns and distributional features~\cite{shwartz-goldberg-dagan:2016:P16-1}. Note that while methods, such as \cite{mirkin-dagan-geffet:2006:POS} and \cite{shwartz-goldberg-dagan:2016:P16-1} use distributional features for extraction of hypernyms, in contrast to our method, they do not take into account word senses and    global distributional structure. 
-%
-%\newcite{seitner2016large} performed extraction of hypernyms from the web-scale Common Crawl\footnote{\url{http://www.commoncrawl.org}} text corpus to ensure high lexical coverage. In our experiments, we use this web-scale database of noisy hypernyms, as the large-scale repository of automatically extracted hypernyms to date. 
-
 \end{frame}
 
 
 \begin{frame}{Induction of semantic classes}
 
-%This line of research starts with \cite{Lin2001}, where sets of similar words are clustered into concepts. While this approach performs a hard clustering and does not label clusters, these drawbacks are addressed in \cite{Pantel2002}, where words can belong to several clusters, thus representing senses, and in \cite{Pantel2004}, where authors aggregate hypernyms per cluster, which come from Hearst patterns. The main difference to our approach is that we explicitly represent senses both in clusters and in their hypernym labels, which enables us to connect our sense clusters into a global taxonomic structure. Consequently, we are the first to use semantic classes to improve hypernymy extraction. 
-%
-%\newcite{ustalov-panchenko-biemann:2017:Long} proposed a synset induction approach based on global clustering of word senses. The authors used the graph constructed of dictionary synonyms, while we use distributionally-induced graphs of senses.
+\begin{block}{A short history of extraction methods}
+
+\begin{enumerate}
+	\item  \cite{Lin2001}: sets of similar words are clustered into concepts.
+	\item \cite{Pantel2002}: words can belong to several clusters (representing senses)
+	\item \cite{Pantel2004}: aggregate hypernyms per cluster from from Hearst patterns
+ 
+
+\end{enumerate}
+\end{block}
+
+\textbf{No explicit evaluation of \alert{usefulness} of hypernymy labels for \alert{hypernymy extraction}.}
 
 \end{frame}
 
-
 \begin{frame}{Main contributions}
+
+\note{The contribution of the paper is an unsupervised method for post-processing of noisy hypernymy relations based on  clustering of graphs of word senses induced from text. The idea to use distributional semantics to find hypernyms seems natural and has been widely used. However, the existing methods used distributional, yet \textit{sense-unaware} and \textit{local} features. We are the first to use \textit{global sense-aware distributional structure} via the induced semantic classes to improve hypernymy extraction. The implementation of our method and the induced language resources (distributional semantic classes and cleansed hypernymy relations) are available online.}
 
 \begin{itemize}
 	\item We show how distributionally-induced \alert{\textbf{semantic classes}} can be helpful  for \alert{\textbf{extracting hypernyms}}:
