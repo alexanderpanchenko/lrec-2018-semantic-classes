@@ -91,7 +91,7 @@
 \end{itemize}
 \end{block}
 
-\vspace{57pt}
+\vspace{87pt}
 
 $ $ 
 \end{frame}
@@ -159,6 +159,9 @@ $ $
 
 \begin{frame}{Induction of semantic classes}
 
+\vspace{-10pt}
+\textbf{``\alert{Global distributional structure}'' of a language $\approx$ global sense clustering}.
+\pause 
 \begin{block}{A short history of extraction methods}
 
 \begin{enumerate}
@@ -183,9 +186,9 @@ $ $
 	\pause
 	\vspace{10pt}
 	\begin{enumerate}
-		\item A method for \alert{inducing sense-aware semantic classes} using distributional semantics; 
+		\item A method for \textbf{\alert{inducing sense-aware semantic classes}} using distributional semantics; 
 		\vspace{10pt}
-		\item A method for using the induced semantic classes for \alert{filtering noisy hypernymy relations}.
+		\item A method for using the induced semantic classes for \textbf{\alert{filtering noisy hypernymy relations}}.
 	 \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -203,8 +206,8 @@ $ $
 \end{figure}
 
 \begin{itemize}
-\item \alert{Post-processing of hypernymy relations} using distributionally induced semantic classes;
-\item A semantic class is a clusters of induced word senses \alert{labeled with hypernyms}.
+\item \textbf{\alert{Post-processing of hypernymy relations}} using distributionally induced semantic classes;
+\item A semantic class is a clusters of induced word senses \textbf{\alert{labeled with hypernyms}}.
 
 \end{itemize}
 
@@ -300,10 +303,10 @@ $ $
 \begin{tabular}{l|p{6cm}|p{2.5cm}} 
 \bf Word Sense & \bf Local Sense Cluster: Related Senses & \bf Hypernyms \\
 \toprule
- mango\#0 &  peach\#1, grape\#0, plum\#0, apple\#0, apricot\#0, watermelon\#1, banana\#1, coconut\#0, pear\#0, fig\#0, melon\#0,  \textbf{mangosteen\#0}, ... & fruit\#0, food\#0, ... \\
+ \alert{mango\#0} &  peach\#1, grape\#0, plum\#0, apple\#0, apricot\#0, watermelon\#1, banana\#1, coconut\#0, pear\#0, fig\#0, melon\#0,  \alert{\textbf{mangosteen\#0}}, ... & fruit\#0, food\#0, ... \\
  
 \midrule
-apple\#0 & mango\#0, pineapple\#0, banana\#1, melon\#0, grape\#0, peach\#1, watermelon\#1, apricot\#0, cranberry\#0, pumpkin\#0, \textbf{mangosteen\#0}, ... & fruit\#0, crop\#0,  ... \\
+\alert{apple\#0} & mango\#0, pineapple\#0, banana\#1, melon\#0, grape\#0, peach\#1, watermelon\#1, apricot\#0, cranberry\#0, pumpkin\#0, \alert{\textbf{mangosteen\#0}}, ... & fruit\#0, crop\#0,  ... \\
 
 \midrule
 Java\#1 & C\#4, Python\#3, Apache\#3, Ruby\#6, Flash\#1, C++\#0, SQL\#0, ASP\#2, Visual Basic\#1, CSS\#0, Delphi\#2, MySQL\#0, Excel\#0, Pascal\#0, ... & programming language\#3, language\#0, ... \\
@@ -451,10 +454,15 @@ Performance of different configurations of the hypernymy labeled global sense cl
 
 \begin{columns}
 \begin{column}{0.4\textwidth}
+
+\includegraphics[width=1.0\textwidth]{figures/e1}
+
+\pause
+
  \begin{itemize}
 \item Layout of the sense cluster evaluation crowdsourcing task;
  
- \item the entry ``winchester'' is the intruder.
+ \item the entry ``\textbf{\alert{winchester}}'' is the \textbf{intruder}.
 \end{itemize}
 \end{column}
 \begin{column}{0.6\textwidth}  
@@ -484,6 +492,7 @@ We compute two metrics on the basis on annotation results: (1) \textit{accuracy}
 \end{frame}
 
 
+
 \begin{frame}{Plausibility of Semantic Classes}
 
 \note{Plausibility of the sense clusters according to human judgments via an intruder detection experiment for the coarse-grained semantic class model.}
@@ -511,19 +520,28 @@ Hyper. labels, $\mathcal{H}(c)$  & $0.919$ & $0.208$ & $0.705$ \\
 \end{frame}
 
 
-\begin{frame}{ Improving Binary Hypernymy Relations }
+
+\begin{frame}{ Improving Hypernymy Relations }
+
+\vspace{-20pt}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/e2}
+\end{center}
+
+\pause
 
 Layout of the hypernymy annotation task:
 
 \begin{figure}
   \centering
-  \includegraphics[width=.88\textwidth]{figures/exp3-hit}
+  \includegraphics[width=.75\textwidth]{figures/exp3-hit}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}{ Improving Binary Hypernymy Relations }
+\begin{frame}{ Improving Hypernymy Relations }
 
 Evaluating results of post-processing of a noisy hypernymy database using human judgements:
 
