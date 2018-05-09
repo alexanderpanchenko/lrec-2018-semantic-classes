@@ -6,6 +6,7 @@
 \showuhhlogoeachframe
 \showsections
 
+\usefonttheme{professionalfonts}
 \usepackage{ textcomp }
 \usepackage{booktabs}
 \usepackage{xcolor}
@@ -143,7 +144,7 @@ $ $
 	
 	\item \cite{shwartz-goldberg-dagan:2016:P16-1}: supervised approach with \textbf{\alert{word and path embedding features}};
 	
-	\item \cite{glavavs-ponzetto:2017:EMNLP2017,ustalov-EtAl:2017:EACLshort}: taking into account \textbf{\alert{assymetry}} of hypernyms.
+	\item \cite{glavavs-ponzetto:2017:EMNLP2017,ustalov-EtAl:2017:EACLshort}: taking into account \textbf{\alert{asymmetry}} of hypernyms.
 
 \end{enumerate}
 \end{block}
@@ -196,7 +197,9 @@ $ $
 \end{enumerate}
 \end{block}
 
-\textbf{No explicit evaluation of \alert{usefulness} of hypernymy labels for \alert{hypernymy extraction}.}
+\pause 
+
+\textbf{No explicit evaluation of \alert{utility} of hypernymy labels for \alert{hypernymy extraction}.}
 
 \end{frame}
 
@@ -246,7 +249,7 @@ $ $
 
 \begin{enumerate}
 	\item Sense-aware distributional semantic classes are \textbf{induced from a text corpus}; 
-	\item Semantic classes are used to \textbf{filter a noisy hypernyms} database. 
+	\item Semantic classes are used to \textbf{filter a noisy hypernym} database. 
  
 \end{enumerate}
 
@@ -456,7 +459,7 @@ Performance of different configurations of the hypernymy labeled global sense cl
 \begin{tabular}{p{1.4cm}|p{1.2cm}|p{1.2cm}|p{1.3cm}|p{1.1cm}|p{1.2cm}|p{1.2cm}}
   \textbf{Min. num of sense co-occurr.}, $t$ & \textbf{Edge weight}, $E$ & \textbf{Hypernym weight}, $H$ & \textbf{Number of clusters} & \textbf{Number of senses} & $\hpcavg$, \textbf{WordNet} & $\hpcavg$, \textbf{BabelNet} \\ \toprule
 
-0  & count  & tf-idf & \textbf{\alert{1\,870}} & \textbf{\alert{208\,871}} & 0.041 & 0.279 \\
+0  & count  & tf-idf & \textbf{\alert{1\,870}} &  \textbf{\alert{208\,871}} & 0.041 & 0.279 \\
 
 100 & log  & tf-idf & \textbf{\alert{734}} &  \textbf{\alert{18\,028}} & 0.092 & 0.304 \\ \midrule
 
@@ -529,8 +532,8 @@ We compute two metrics on the basis on annotation results: (1) \textit{accuracy}
 
 \begin{tabular}{l|c|c|c}
 \textbf{} & \textbf{Accuracy} & \textbf{Badness} & \textbf{Randolph $\kappa$} \\ \toprule
-Sense clusters, $c$ & $0.859$ & $0.248$ & $0.739$ \\
-Hyper. labels, $\mathcal{H}(c)$  & $0.919$ & $0.208$ & $0.705$ \\
+Sense clusters, $c$ & 0.859 & 0.248 & 0.739 \\
+Hyper. labels, $\mathcal{H}(c)$  & 0.919 & 0.208 & 0.705 \\
 \end{tabular}
 
 \pause 
@@ -583,8 +586,8 @@ Evaluating results of post-processing of a noisy hypernymy database using human 
 
 \begin{tabular}{p{6cm}|c|c|c}
  & \textbf{Precision} & \textbf{Recall} & \textbf{F-score} \\ \toprule
-\textbf{\alert{Original}} hypernymy relations extracted from Common Crawl corpus~\cite{seitner2016large} & $0.475$ & $0.546$ & $0.508$ \\ \midrule 
-\textbf{\alert{Enhanced}} hypernyms with the \textit{coarse-grained} semantic classes   & $\mathbf{0.541}$ & $\mathbf{0.679}$ & $\mathbf{0.602}$ \\ 
+\textbf{\alert{Original}} hypernymy relations extracted from Common Crawl corpus~\cite{seitner2016large} & 0.475 & 0.546 & 0.508 \\ \midrule 
+\textbf{\alert{Enhanced}} hypernyms with the \textit{coarse-grained} semantic classes   & \textbf{0.541} & \textbf{0.679} & \textbf{0.602} \\ 
 \end{tabular}
 
 \end{table}
